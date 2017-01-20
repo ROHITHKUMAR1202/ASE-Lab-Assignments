@@ -1,2 +1,4 @@
-# UMKC_CS_ASGNMNTS
-All my CS course related assignments
+# Advance Software Engineering(CS5551-Spring'17)
+
+### Lab Assignment1---        
+### Lab Assignment2---       
