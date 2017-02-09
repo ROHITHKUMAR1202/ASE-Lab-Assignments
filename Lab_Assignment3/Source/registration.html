@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Registration</title>
+<style>
+*{
+	/* Resetting the default styles of the page */
+	margin:0;
+	padding:0;
+}
+
+html{
+	overflow:auto;
+}
+
+body{
+	/* Setting default text color, background and a font stack */
+	font-size:1em;
+	color:#eee;
+	background:url("img/bg.png") repeat-x #222222;
+	font-family:Arial,Tahoma, sans-serif;
+}
+
+#carbonForm{
+	/* The main form container */
+	background-color:#970F08;
+	border:1px solid #080808;
+	margin:20px auto;
+	padding:20px;
+	width:500px;
+	
+	-moz-box-shadow:0 0 1px #444 inset;
+	-webkit-box-shadow:0 0 1px #444 inset;
+	box-shadow:0 0 1px #444 inset;
+}
+
+#carbonForm h1{
+	/* The form heading */
+	font-family:Century Gothic,Myriad Pro,Arial,Helvetica,sans-serif;
+	font-size:60px;
+	font-weight:normal;
+	padding:0 0 30px 10px;
+	text-align:left;
+}
+
+.fieldContainer{
+	/* The light rounded section, which contans the fields */
+	background-color:#1E1E1E;
+	border:1px solid #0E0E0E;
+	padding:30px 10px;
+	
+	/* CSS3 box shadow, used as an inner glow */
+	-moz-box-shadow:0 0 20px #292929 inset;
+	-webkit-box-shadow:0 0 20px #292929 inset;
+	box-shadow:0 0 20px #292929 inset;
+}
+
+#carbonForm,.fieldContainer,.errorTip{
+	/* Rounding the divs at once */
+	-moz-border-radius:12px;
+	-webkit-border-radius:12px;
+	border-radius:12px;
+}
+
+
+.formRow{
+	height:35px;
+	padding:10px;
+	position:relative;
+}
+
+.label{
+	float:left;
+	padding:0 20px 0 0;
+	text-align:right;
+	width:70px;
+}
+
+label{
+	font-family:Century Gothic,Myriad Pro,Arial,Helvetica,sans-serif;
+	font-size:16px;
+	letter-spacing:1px;
+	line-height:35px;
+}
+
+.field{
+	float:left;
+}
+
+.field input{
+	/* The text boxes */
+	border:1px solid white;
+	color:#666666;
+	font-family:Arial,Helvetica,sans-serif;
+	font-size:22px;
+	padding:4px 5px;
+	background:url("img/box_bg.png") repeat-x scroll left top #FFFFFF;
+	outline:none; /* Preventing the default Safari and Chrome text box highlight */
+}
+
+.signupButton{
+	/* The submit button container */
+	text-align:center;
+	padding:30px 0 10px;
+}
+
+#submit{
+	/* The submit button */
+	border:1px solid #f4f4f4;
+	cursor:pointer;
+	height:40px;
+	text-indent:-9999px;
+	text-transform:uppercase;
+	width:110px;
+	
+	background:url("img/submit.png") no-repeat center center #d0ecfd;
+	
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+}
+
+#submit.active{
+	/* Marking the submit button as active adds the preloader gif as background */
+	background-image:url("img/preloader.gif");
+}
+
+#submit:hover{
+	background-color:#dcf2ff;
+	border:1px solid white;
+}
+
+input:hover,
+input:focus{
+	-moz-box-shadow:0 0 8px lightblue;
+	-webkit-box-shadow:0 0 8px lightblue;
+	box-shadow:0 0 8px lightblue;
+}
+
+.errorTip{
+	/* The error divs */
+	background-color:#970F08;
+	color:white;
+	font-size:10px;
+	height:26px;
+	letter-spacing:0.4px;
+	margin-left:20px;
+	padding:5px 0 5px 10px;
+	position:absolute;
+	text-shadow:1px 1px 0 #555555;
+	width:200px;
+	right:-130px;
+}
+
+#footer{
+	position:fixed;
+	bottom:0;
+	width:100%;
+	padding:10px;
+	color:#eee;
+	text-align:center;
+	font-weight:normal;
+	font-style:italic;
+}
+
+a, a:visited {
+	color:#0196e3;
+	text-decoration:none;
+	outline:none;
+}
+
+a:hover{
+	text-decoration:underline;
+}
+
+a img{
+	border:none;
+}
+
+</style>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+	// $(document).ready() is executed after the page DOM id loaded
+	
+	
+	// Binding an listener to the submit event on the form:
+	$('#signupForm').submit(function(e){
+
+		// If a previous submit is in progress:
+		if($('#submit').hasClass('active')) return false;
+		
+		// Adding the active class to the button. Will show the preloader gif:
+		$('#submit').addClass('active');
+		
+		// Removing the current error tooltips
+		$('.errorTip').remove();
+		
+		// Issuing a POST ajax request to submit.php (the action attribute of the form):
+		$.post($('#signupForm').attr('action'),$('#signupForm').serialize(),function(response){
+			
+			if(!response.status)
+			{
+				// Some kind of input error occured
+				
+				// Looping through all the input text boxes,
+				// and checking whether they produced an error
+				$('input[type!=submit]').each(function(){
+					var elem = $(this);
+					var id = elem.attr('id');
+					
+					if(response[id])
+						showTooltip(elem,response[id]);
+				});
+			}
+			else location.replace(response.redirectURL);
+			
+			$('#submit').removeClass('active');
+		},'json');
+		
+		e.preventDefault();
+	});
+	
+	$(window).resize();
+});
+
+// Centering the form vertically on every window resize:
+$(window).resize(function(){
+	var cf = $('#carbonForm');
+	
+	$('#carbonForm').css('margin-top',($(window).height()-cf.outerHeight())/2)
+});
+
+// Helper function that creates an error tooltip:
+
+</script>
+
+</head>
+
+<body>
+
+<div id="carbonForm">
+	<h1>Signup</h1>
+
+    <form action="map.html">
+
+    <div class="fieldContainer">
+
+        <div class="formRow">
+            <div class="label">
+                <label for="name">Name:</label>
+            </div>
+            
+            <div class="field">
+                <input type="text" name="name" id="name" />
+            </div>
+        </div>
+        
+        <div class="formRow">
+            <div class="label">
+                <label for="email">Email:</label>
+            </div>
+            
+            <div class="field">
+                <input type="text" name="email" id="email" />
+            </div>
+        </div>
+        
+        <div class="formRow">
+            <div class="label">
+                <label for="pass">Password:</label>
+            </div>
+            
+            <div class="field">
+                <input type="password" name="pass" id="pass" />
+            </div>
+        </div>
+        
+        
+    </div> <!-- Closing fieldContainer -->
+    
+    <div class="signupButton">
+        <input type="submit" name="submit" id="submit" value="Signup"/>
+    </div>
+    
+    </form>
+        
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
+</body>
+</html>
