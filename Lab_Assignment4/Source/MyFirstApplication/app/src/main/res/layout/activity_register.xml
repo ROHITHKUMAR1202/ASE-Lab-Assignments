@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@android:color/holo_red_dark">
+
+    <TextView
+        android:text="Register here....!"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:fontFamily="cursive"
+        android:textSize="24sp"
+        android:textStyle="normal|bold"
+        android:textColor="@android:color/background_dark"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/button_Signup"
+        android:layout_alignStart="@+id/button_Signup"
+        android:layout_marginTop="52dp" />
+
+    <CheckBox
+        android:text="I agree to the terms and conditions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkBox_terms"
+        android:fontFamily="cursive"
+        android:textSize="24sp"
+        android:textColor="@android:color/background_dark"
+        android:textStyle="normal|bold"
+        android:layout_below="@+id/editText_Pwd"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="26dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editText_Uname"
+        android:hint="Please enter username"
+        android:fontFamily="cursive"
+        android:textColor="@android:color/background_dark"
+        android:textSize="24sp"
+        android:textStyle="normal|bold"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="31dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/editText_email"
+        android:fontFamily="cursive"
+        android:textSize="24sp"
+        android:textColor="@android:color/background_dark"
+        android:textStyle="normal|bold"
+        android:hint="Please enter email address"
+        android:layout_below="@+id/editText_Uname"
+        android:layout_alignLeft="@+id/editText_Uname"
+        android:layout_alignStart="@+id/editText_Uname" />
+
+    <Button
+        android:text="Sign Up...!"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_Signup"
+        android:fontFamily="cursive"
+        android:textSize="24sp"
+        android:textColor="@android:color/holo_red_dark"
+        android:layout_marginTop="44dp"
+        android:layout_below="@+id/checkBox_terms"
+        android:onClick="Register"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:hint="Please enter password"
+        android:id="@+id/editText_Pwd"
+        android:textSize="24sp"
+        android:fontFamily="cursive"
+        android:textColor="@android:color/background_dark"
+        android:textStyle="normal|bold"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/editText_email"
+        android:layout_alignStart="@+id/editText_email" />
+
+</RelativeLayout>
