@@ -1,4 +1,4 @@
-package com.example.shankarpentyala.labassignment5;
+package com.example.rohithkumar.labassignment5;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
