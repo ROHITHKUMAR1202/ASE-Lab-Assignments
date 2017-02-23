@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">KnowMe</string>
-    <string name="google_maps_key">AIzaSyByFCjyybDYlEtCHU5Dx1oClq1CRcgh9V4</string>
-    <string name="title_activity_main2">Login</string>
-    <string name="title_activity_maps">Home</string>
-</resources>
