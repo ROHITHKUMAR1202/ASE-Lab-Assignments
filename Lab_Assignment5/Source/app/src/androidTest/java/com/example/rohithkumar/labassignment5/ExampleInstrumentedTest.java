@@ -1,4 +1,4 @@
-package com.example.shankarpentyala.labassignment5;
+package com.example.rohithkumar.labassignment5;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
