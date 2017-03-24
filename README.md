@@ -8,3 +8,6 @@
 ### Lab Assignment5---[LAB Assignment-5(wiki)](https://github.com/ROHITHKUMARN/ASE-Lab-Assignments/wiki/Lab-Assignment-5(Android-Project2))
 ### Lab Assignment6---[LAB Assignment-6(wiki)](https://github.com/ROHITHKUMARN/ASE-Lab-Assignments/wiki/Lab-Assignment-6(Smart-Watch-App&-Google-Card-Board))
 ### Lab Assignment7---[LAB Assignment-7(wiki)](https://github.com/ROHITHKUMARN/ASE_Assignments--Part2/wiki/Lab-Assignment-7(IONIC-APPLICATION_TEXT-TO-SPEECH-CONVERTER))
+### Lab Assignment8---[LAB Assignment-8(wiki)](https://github.com/ROHITHKUMARN/ASE_Assignments--Part2/wiki/Lab-Assignment-8(IONIC-PLUGIN))
+LAB 9(WEB APP: Custom rest call using nodejs)
+### Lab Assignment9---[LAB Assignment-9(wiki)](https://github.com/ROHITHKUMARN/ASE_Assignments--Part2/wiki/Lab--Assignment9(MEAN-stack-devapp))
