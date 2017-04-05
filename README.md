@@ -10,3 +10,4 @@
 ### Lab Assignment7---[LAB Assignment-7(wiki)](https://github.com/ROHITHKUMARN/ASE_Assignments--Part2/wiki/Lab-Assignment-7(IONIC-APPLICATION_TEXT-TO-SPEECH-CONVERTER))
 ### Lab Assignment8---[LAB Assignment-8(wiki)](https://github.com/ROHITHKUMARN/ASE_Assignments--Part2/wiki/Lab-Assignment-8(IONIC-PLUGIN))
 ### Lab Assignment9---[LAB Assignment-9(wiki)](https://github.com/ROHITHKUMARN/ASE_Assignments--Part2/wiki/Lab--Assignment9(MEAN-stack-devapp))
+### Lab Assignment10---[LAB Assignment-10(wiki)](https://github.com/ROHITHKUMARN/ASE_Assignments--Part2/wiki/MEAN-APP-(Bean-stalk-deployed))
